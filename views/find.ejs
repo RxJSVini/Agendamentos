@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+    <%- include('partials/navbar.ejs') %>
+    
+    <div class="container">
+        <hr>
+        <form action="/searchresult" method="get">
+            <input  class="form-control" type="search" name="search" id="searchId">
+            <button type="submit" class="btn btn-primary btn-sm">Pesquisar</button>
+        </form>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h1>Agendamentos</h1>
+            </div>
+            
+            <div class="card-body">
+                <% if(!appos){ %>
+                    <%=  appos %>
+                    <p> Dados não encontrados para listagem!</p>
+               <% } else { %> 
+                <% appos.forEach(appo => { %>
+
+                    <h1>Consulta: <%= appo.description %> </h1>
+                    <h4>Paciente: <%= appo.name %> </h4>
+                    <h4>Email: <%= appo.email %> </h4>
+                    <h4>CPF:  <%= appo.cpf %> </h4>
+                    <hr>
+                
+                <% }) %>
+              <% } %>
+                <hr>
+            </div>
+        </div>
+
+        
+    </div>
+
+</body>
+</html>

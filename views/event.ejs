@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<body>
+    <div>
+        <%- include('partials/navbar.ejs') %>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>Paciente: <%= appo.name %> </h4>
+            </div>
+            <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">Email: <%= appo.email %> </li>
+                <li class="list-group-item">CPF:  <%= appo.cpf %> </li>
+                <li class="list-group-item">Consulta: <%= appo.description %></li>
+                <% if(!appo.finished){ %>
+                    <form action="/finish" method="post">
+                        <input type="hidden" name="id" value="<%= appo._id %>">
+                        <button class="btn btn-primary btn-block">Finalizar consulta</button>
+                    </form>
+                <% } %>
+    
+            </div>
+         </ul>
+        </div>
+    </div>
+
+</html>
+
