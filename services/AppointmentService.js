@@ -78,11 +78,11 @@ class AppointmentService {
        console.log(appos)
 
        const transporter = mailer.createTransport({  
-        host: "smtp.mailtrap.io",
+        host: "smtp.servico_de_envio_de_email",
         port: 2525,
         auth: {
-          user: "f0b665db70312f",
-          pass: "0ba691d2bcc3ed"
+          user: "usuario_envio_email",
+          pass: "senha_do_usuario"
         }})
         appos.forEach(async appo =>{
              const date = appo.start.getTime(); 
